@@ -1,0 +1,396 @@
+@import "tailwindcss";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* ===================================
+   TESTIMONIAL CAROUSEL STYLES
+   =================================== */
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-swiper-container {
+  position: relative;
+  overflow: visible;
+  margin: 0 -12px;
+}
+
+.testimonial-swiper {
+  overflow: visible !important;
+  padding: 20px 0;
+}
+
+.testimonial-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.testimonial-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0.4;
+  transform: scale(0.85);
+}
+
+/* Active center slide */
+.testimonial-swiper .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 3;
+}
+
+/* Adjacent slides (left and right of center) */
+.testimonial-swiper .swiper-slide-next,
+.testimonial-swiper .swiper-slide-prev {
+  opacity: 0.7;
+  transform: scale(0.9);
+  z-index: 2;
+}
+
+/* Side slides (partially visible) */
+.testimonial-swiper .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) {
+  opacity: 0.3;
+  transform: scale(0.8);
+  z-index: 1;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 639px) {
+  .testimonial-swiper .swiper-slide {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  
+  .testimonial-swiper .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .testimonial-swiper .swiper-slide-next,
+  .testimonial-swiper .swiper-slide-prev {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .testimonial-swiper .swiper-slide {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+  
+  .testimonial-swiper .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .testimonial-swiper .swiper-slide-next,
+  .testimonial-swiper .swiper-slide-prev {
+    opacity: 0.7;
+    transform: scale(0.92);
+  }
+}
+
+/* Custom navigation arrows */
+.testimonial-swiper .swiper-button-next,
+.testimonial-swiper .swiper-button-prev {
+  color: #1f2937;
+  background: rgba(255, 255, 255, 0.9);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  top: 50%;
+  margin-top: -25px;
+}
+
+.testimonial-swiper .swiper-button-next {
+  right: -25px;
+}
+
+.testimonial-swiper .swiper-button-prev {
+  left: -25px;
+}
+
+.testimonial-swiper .swiper-button-next:hover,
+.testimonial-swiper .swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-swiper .swiper-button-next::after,
+.testimonial-swiper .swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Hide navigation on mobile and small tablets */
+@media (max-width: 1023px) {
+  .testimonial-swiper .swiper-button-next,
+  .testimonial-swiper .swiper-button-prev {
+    display: none;
+  }
+}
+
+/* Smooth transitions */
+.testimonial-swiper .swiper-slide-active {
+  animation: slideInCenter 0.6s ease-out;
+}
+
+@keyframes slideInCenter {
+  from {
+    opacity: 0.7;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Ensure container allows for side overflow */
+.max-w-7xl {
+  overflow: visible;
+}
+
+/* ===================================
+   NEWS SECTION STYLES
+   =================================== */
+
+/* Prevent horizontal overflow */
+.news-swiper {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.news-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.news-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Hide scrollbar utility class */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure no horizontal overflow on the entire page */
+body {
+  overflow-x: hidden;
+}
+
+/* Container overflow prevention */
+.w-full {
+  max-width: 100%;
+}
+
+/* Responsive image container */
+.news-swiper img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for potential swiper overflow issues */
+.swiper {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.swiper-wrapper {
+  width: 100% !important;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+}
+
+/* Responsive breakpoints for cards */
+@media (max-width: 640px) {
+  .news-swiper .swiper-slide > div {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .news-swiper .swiper-slide > div {
+    max-width: 380px;
+  }
+}
+
+@media (min-width: 769px) {
+  .news-swiper .swiper-slide > div {
+    max-width: 400px;
+  }
+}
+
+/* ===================================
+   FINANCE SECTION STYLES
+   =================================== */
+
+.container-responsive {
+  max-width: 1450px;
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    max-width: 1450px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-responsive {
+    max-width: 1450px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container-responsive {
+    max-width: 1800px;
+  }
+}
+
+.swiper-pagination {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.swiper-pagination-bullet-custom {
+  width: 12px;
+  height: 12px;
+  background: #d1d5db;
+  border-radius: 50%;
+  opacity: 1;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.swiper-pagination-bullet-active-custom {
+  background: #1f2937;
+  transform: scale(1.2);
+}
+
+.swiper-pagination-bullet-custom:hover {
+  background: #6b7280;
+  transform: scale(1.1);
+}
+
+/* Hide scrollbar utility class */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide pagination on desktop when all cards are visible */
+@media (min-width: 1200px) {
+  .swiper-pagination {
+    display: none;
+  }
+}
+
+/* ===================================
+   EXCELLENCE CARD STYLES
+   =================================== */
+.container {
+    @media (min-width: 1536px) {
+        max-width: 85rem;
+    }
+
+    @media (min-width: 1920px) {
+        max-width: 110rem;
+    }
+}
+
+.swiper-pagination {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.swiper-pagination-bullet-custom {
+  width: 12px;
+  height: 12px;
+  background: #d1d5db;
+  border-radius: 50%;
+  opacity: 1;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+.swiper-pagination-bullet-active-custom {
+  background: #1f2937;
+  transform: scale(1.2);
+}
+
+.swiper-pagination-bullet-custom:hover {
+  background: #6b7280;
+  transform: scale(1.1);
+}
+
+/* Hide scrollbar utility class */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide pagination on desktop when all cards are visible */
+@media (min-width: 1200px) {
+  .swiper-pagination {
+    display: none;
+  }
+}
+
+/* ===================================
+   NEWS SECTION STYLES
+   =================================== */
+
+   .container {
+    @media (min-width: 1536px) {
+        max-width: 75rem;
+    }
+
+    @media (min-width: 1920px) {
+    max-width: 100rem;
+    }
+}
